@@ -1,34 +1,15 @@
 # Study Reference
 **Stewart et al., 2025**
 **DOI**: [Insert DOI here]
+**Figshare link for data set:** https://kcl.figshare.com/account/items/30217441
 
 ## Overview
-This repository accompanies the data processing and descriptive analyses for the study by Stewart et al. (2025). It includes both final outputs and all intermediate files and scripts used during processing.
-
----
-
-## Folder Structure
-### Final_files/
-Contains the final output files. These are ready-to-use and do not require running any processing scripts.
-
-### For_processing/
-Includes:
-- Raw data files
-- R and Python scripts
-- Input and output files generated during processing
-
+This is part 2 of a larger project for the data processing and descriptive analyses for the study by Stewart et al. (2025). The first part can be found at https://github.com/louisesophieschindler.
 ---
 
 ## Dependencies
-This project uses both **Python** and **R** for data processing and analysis. Please ensure the following dependencies are installed before running the scripts.
+This project uses **R** for data processing and analysis. Please ensure the following dependencies are installed before running the scripts.
 
-### Python
-- **Version**: Python 3.9.20
-- Install required packages using:
-
-pip install -r requirements.txt
-
-### R
 - **Version**: R 4.3.2
 - Install required packages using:
 
@@ -45,26 +26,16 @@ install.packages(c(
 
 
 ## Data Processing Steps
-### Step 1: Download the For_processing folder
+### Step 1: Download the For_processing folder from figshare: https://kcl.figshare.com/account/items/30217441
 Ensure the following files are included:
 - clinical_trials_raw_data.xlsx
-- condition_maps.py
-- conditions_pipeline_gh.py
 - AD_All_Lookup.xlsx
 - Other_Drug_Lookup.xlsx
 
 
-### Step 2: Run conditions_pipeline_gh.py
-Inputs:
-- clinical_trials_raw_data.xlsx
-- condition_maps.py
-
-Outputs:
-- interim_withconditions.xlsx (used in Step 3)
-- term_by_category.xlsx -> table of the top categories, the sub-categories, and their counts (Table 1)
-- depression_coocurrence.png / tif -> Figure 5
-- mental_behavioural_subcategory_counts.png / tif -> Figure 6
-
+### Step 2: Run part 1 available at https://github.com/louisesophieschindler.
+The output below is necessary for Step 3
+- interim_withconditions.xlsx
 
 ### Step 3: Run cleaning_analysis.r  
 Inputs:
