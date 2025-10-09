@@ -1,7 +1,6 @@
 # ------------------------------------------------------------
 # Script Name:  Processing and descriptive analysis steps for Clinical Trials 
 #               In Depression collection, available at: 
-# Github: 
 # Author: Kate Stewart
 # Date: October 2025
 # Description:  Processes clinical trial data to identify trials involving drugs
