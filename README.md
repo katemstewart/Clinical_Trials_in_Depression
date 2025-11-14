@@ -1,7 +1,8 @@
 # Study Reference
 **Stewart et al., 2025**
 **DOI**: [Insert DOI here]
-**Figshare link for data set:** https://kcl.figshare.com/account/items/30217441
+**Figshare link for data set:** https://kcl.figshare.com/articles/dataset/Clinical_trials_in_depression_Integrated_collection_across_EU_and_US_registries/30217441/1
+**Dataset DOI**: https://doi.org/10.18742/30217441.v1
 
 ## Overview
 This is part 2 of a larger project for the data processing and descriptive analyses for the study by Stewart et al. (2025). The first part can be found at https://github.com/louisesophieschindler.
