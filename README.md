@@ -6,6 +6,13 @@
 
 **Dataset DOI**: https://doi.org/10.18742/30217441.v1
 
+## License
+This repository and all its contents are licensed under the Creative Commons Attribution 4.0 International License (CC BY 4.0).
+
+You are free to share and adapt the material, provided you give appropriate credit.  
+
+License details: https://creativecommons.org/licenses/by/4.0/
+
 ## Overview
 This is part 2 of a larger project for the data processing and descriptive analyses for the study by Stewart et al. (2025). The first part can be found at https://github.com/louisesophieschindler.
 ---
