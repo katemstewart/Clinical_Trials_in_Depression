@@ -4,7 +4,7 @@
 
 **Figshare link for data set:** https://kcl.figshare.com/articles/dataset/Clinical_trials_in_depression_Integrated_collection_across_EU_and_US_registries/30217441/1
 
-**Dataset DOI**: https://doi.org/10.18742/30217441.v1
+**Dataset DOI**: https://doi.org/10.18742/30217441
 
 ## License
 This repository and all its contents are licensed under the Creative Commons Attribution 4.0 International License (CC BY 4.0).
