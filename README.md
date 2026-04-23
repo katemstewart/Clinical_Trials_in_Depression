@@ -1,6 +1,6 @@
 # Study Reference
 **Stewart et al., 2025**
-**DOI**: [Insert DOI here]
+**DOI**: https://doi.org/10.12688/wellcomeopenres.25126.1
 
 **Figshare link for data set:** https://kcl.figshare.com/articles/dataset/Clinical_trials_in_depression_Integrated_collection_across_EU_and_US_registries/30217441/1
 
@@ -58,10 +58,13 @@ Outputs:
 - clinical_trials_processed.xlsx
 - status_register_table.docx -> Table 3
 - sponsor_category_table.docx -> Table 4
+- AD_class_count_table.docx - Table 5
+- AD_count_table.docx -> Table 6
 - intervention_type.png / eps -> Figure 3
-- AD_two_panel.png / eps -> Figure 4
-- all_drug_class_by_year_87_24.png / eps -> Figure 7
-- vector_plot_subset.png / eps -> Figure 8
+- sponsors_by_year.png / eps -> Figure 4
+- AD_two_panel.png / eps -> Figure 5
+- all_drug_class_by_year_87_24.png / eps -> Figure 8
+- vector_plot_subset.png / eps -> Figure 9
 - available_demographics_full.docx -> Supplementary table 2
 - unique_intervention_table.docx -> Supplementary table 3
 - sponsor_table.docx -> Supplementary table 4 (column 1)
@@ -72,19 +75,22 @@ Outputs:
 - vector_plot_drug.png / eps -> Supplementary Figure 3
 - vector_plot_gene.png / eps -> Supplementary Figure 3
 - vector_plot_other.png / eps -> Supplementary Figure 3
+- available_demographics.docx
+- precision_df_table.docx
 - AD_class_by_year.png
 - AD_count.png / eps
 - AD_drug_class.png / eps
 - AD_drug_interventions.csv
 - AD_plot_min25.png / eps
 - all_drug_class_by_year.png
-- available_demographics.docx
+- all_vector_plot.png
 - drug_freq_distrib.png
 - drug_freq_distrib_dup.png
 - include_drug_int.png / eps
 - other_drug_class_count.png / eps
 - Other_drug_count.png
-- precision_df_table.docx
 - trial_phase_all.png
+- trial_status_all.png
+- trial_status_drug_int.png
 - trial_status_all.png
 - trial_status_drug_int.png
