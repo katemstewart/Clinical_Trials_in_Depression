@@ -1,8 +1,9 @@
 # ------------------------------------------------------------
 # Script Name:  Processing and descriptive analysis steps for Clinical Trials 
 #               In Depression collection, available at: 
+# Github: 
 # Author: Kate Stewart
-# Date: October 2025
+# Date: March 2026
 # Description:  Processes clinical trial data to identify trials involving drugs
 #               relevant to treatment of depression. Categorises sponsors of 
 #               clinical trials into type and summarizes sponsor distribution 
@@ -175,7 +176,7 @@ print(drug_int_sponsor_count)
 
 # === Add Sponsor Categories to Depression Drug Dataset ===
 # Create mapping of trial ID to sponsor type
-sponsor_cat_id <- sponsor_list |> 
+Vi <- sponsor_list |> 
   select(`Trial ID`, Sponsor, sponsor_type) |> 
   distinct(`Trial ID`, Sponsor, sponsor_type) |> 
   rename("trial_id" = `Trial ID`)
@@ -507,8 +508,15 @@ print(percent_phase_depress_drug)
 
 # === Antidepressant Drug Class Analysis ===
 AD_class_count_tbl <- AD_interventions_only |> 
-  count(Drug_class) 
+  count(Drug_class) |> 
+  mutate(
+    percent_of_agents_tested = round(n / sum(n) * 100, 1)
+  )
+
 print(AD_class_count_tbl)
+AD_class_count_table_export <- 
+  flextable(AD_class_count_tbl) |> 
+  save_as_docx(path = "AD_class_count_table.docx")
 
 AD_drug_class <- ggplot(AD_interventions_only, aes(fct_infreq(Drug_class), fill = Drug_class)) +
   geom_bar() +
@@ -562,8 +570,14 @@ ggsave("other_drug_class_count.eps", Other_drug_class, width = 8, height = 8)
 # === Antidepressant Drug Frequency Analysis ===
 AD_count_tbl <- AD_interventions_only |> 
   count(drug_name_generic) |> 
-  arrange(desc(n))
+  arrange(desc(n)) |> 
+  mutate(
+    percent_of_agents_tested = round(n / sum(n) * 100, 1)
+  )
 print(AD_count_tbl)
+AD_count_table_export <- 
+  flextable(AD_count_tbl) |> 
+  save_as_docx(path = "AD_count_table.docx")
 
 AD_count <- ggplot(AD_interventions_only, aes(fct_infreq(drug_name_generic), fill = Drug_class, color = Drug_class)) +
   geom_bar() +
@@ -821,6 +835,35 @@ All_drug_class_by_year_87_24 <- ggplot(all_drug_depress_start_year_count_87_24, 
   ))
 ggsave("all_drug_class_by_year_87_24.png", All_drug_class_by_year_87_24, width = 10, height = 5)
 ggsave("all_drug_class_by_year_87_24.eps", All_drug_class_by_year_87_24, width = 10, height = 5)
+
+# === Sponsor Start Year Analysis ===
+# Join start year to sponsors 
+sponsors_trials_start_year <- left_join(sponsor_cat_id, Start_year_df, by = "trial_id")
+
+#Count trials by start year and sponsors, filter timeline to 1987-2024 (exclude incomplete years)
+trial_count_with_sponsors <- sponsors_trials_start_year |>
+  filter(start_year != "NA") |> 
+  filter(start_year != "2025") |> 
+  filter(start_year != "2026") |> 
+  mutate(start_year = as.numeric(start_year)) |> 
+  group_by(start_year, sponsor_type) |>
+  summarise(num_trials = n(), .groups = "drop")
+
+# Plot sponsors over time
+Sponsors_by_year <- ggplot(trial_count_with_sponsors, aes(x = start_year, y = num_trials, color = sponsor_type, group = sponsor_type)) +
+  geom_line(linewidth = 1) +
+  labs(title = "Trials over time by sponsor type",
+       x = "Start Year",
+       y = "count sponsor types by number of trials",
+       color = "Sponsor type") +
+  theme_minimal() +
+  theme(axis.text = element_text(size = 18)) +
+  theme(axis.title = element_text(size = 18)) +
+  theme(legend.text = element_text(size = 18)) +
+  theme(legend.title = element_text(size = 18)) +
+  theme(title = element_text(size = 20))
+ggsave("sponsors_by_year.png", Sponsors_by_year, width = 16, height = 8)
+ggsave("sponsors_by_year.eps", Sponsors_by_year, width = 16, height = 8)
 
 # === Demographics Availability Summary ===
 available_demographics <- demographics |>
